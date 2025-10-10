@@ -1,6 +1,6 @@
 module github.com/dog-xyz/utils/bes
 
-go 1.23.4
+go 1.25.0
 
 require github.com/olivere/elastic/v7 v7.0.32
 
