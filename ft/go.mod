@@ -1,4 +1,4 @@
-module github.com/dog-xyz/utils/ft
+module github.com/trustin-info/utils/ft
 
 go 1.25.0
 

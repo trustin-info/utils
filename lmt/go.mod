@@ -1,4 +1,4 @@
-module github.com/dog-xyz/utils/lmt
+module github.com/trustin-info/utils/lmt
 
 go 1.25.0
 

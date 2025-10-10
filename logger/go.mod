@@ -1,4 +1,4 @@
-module github.com/dog-xyz/utils/logger
+module github.com/trustin-info/utils/logger
 
 go 1.25.0
 

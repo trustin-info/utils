@@ -1,4 +1,4 @@
-module github.com/dog-xyz/utils/bes
+module github.com/trustin-info/utils/bes
 
 go 1.25.0
 
