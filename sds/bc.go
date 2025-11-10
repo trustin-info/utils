@@ -180,6 +180,14 @@ func (f *BigCache) HIncrBy(key, subKey string, incr int64, expiration time.Durat
 	return f.shards[i].hIncrBy(key, subKey, incr, expiration)
 }
 
+func (f *BigCache) Clean() {
+	for i := 0; i < int(f.num); i++ {
+		f.mus[i].Lock()
+		f.shards[i].clean()
+		f.mus[i].Unlock()
+	}
+}
+
 // djb2 with better shuffling. 5x BigCache than FNV with the hash.Hash overhead.
 func djb33(seed uint32, k string) uint32 {
 	var (

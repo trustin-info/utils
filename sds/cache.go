@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	defaultExpire = time.Duration(3*24*3600) * time.Second
+	defaultExpire = time.Duration(5*24*3600) * time.Second
 
 	modeLru = 0
 
