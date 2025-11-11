@@ -8,6 +8,7 @@ import (
 	"os"
 	"sync"
 	"time"
+	"hash/crc32"
 )
 
 type BigCache struct {
@@ -43,7 +44,8 @@ func NewBigCache(mode int, num uint32, size int, onEvict EvictFunc) *BigCache {
 }
 
 func (f *BigCache) idx(k string) uint32 {
-	return djb33(f.seed, k) % f.num
+	//return djb33(f.seed, k) % f.num
+	return Crc32(k) % f.num
 }
 
 func (f *BigCache) Set(key string, value interface{}, expiration time.Duration) {
@@ -218,4 +220,11 @@ func djb33(seed uint32, k string) uint32 {
 		d = (d * 33) ^ uint32(k[i+2])
 	}
 	return d ^ (d >> 16)
+}
+
+
+
+//计算Crc32
+func Crc32(data string) uint32 {
+	return crc32.ChecksumIEEE([]byte(data))
 }
